@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Catálogo de Videojuegos</h2>
+  <div class="row">
+    <!-- Iteramos sobre los videojuegos en el array -->
+    <div class="mb-4 col-md-3" *ngFor="let juego of videojuegos">
+      <div class="card">
+        <img [src]="juego.imagen" class="card-img-top" alt="{{juego.nombre}}">
+        <div class="card-body">
+          <h5 class="card-title">{{juego.nombre}}</h5>
+          <p class="card-text">Precio: ${{juego.precio}}</p>
+          <button class="btn btn-primary">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
