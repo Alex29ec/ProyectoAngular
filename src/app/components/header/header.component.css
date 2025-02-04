@@ -1,0 +1,31 @@
+/* header.component.css */
+header {
+  background-color: #007bff; /* Color de fondo */
+}
+
+input[type="text"] {
+  border-radius: 50px; /* Borde redondeado para el campo de búsqueda */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.input-group-text {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px; /* Borde redondeado para el icono */
+}
+
+.btn-light {
+  background-color: #f8f9fa; /* Botón de nombre de usuario */
+  color: #343a40;
+  border-radius: 30px;
+}
+
+.btn-outline-light {
+  border-color: #f8f9fa;
+  color: #f8f9fa;
+  border-radius: 30px;
+}
+
+.btn-outline-light:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}

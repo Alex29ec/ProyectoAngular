@@ -1,0 +1,58 @@
+{
+	"folders": [
+		{
+			"name": "phpDockerDocs",
+			"path": "../../../../Users/diurno/Desktop/phpDockerDocs"
+		},
+		{
+			"name": "DWEC",
+			"path": "../../../../Users/diurno/Desktop/ALEX/DWEC"
+		},
+		{
+			"name": "kaos",
+			"path": "../../../../Users/diurno/Desktop/kaos/kaos"
+		},
+		{
+			"name": "ARROYO",
+			"path": "../../../../Users/diurno/Desktop/ARROYO"
+		},
+		{
+			"name": "DWEC",
+			"path": "../../../../Users/diurno/Desktop/ARROYO/DWEC"
+		},
+		{
+			"name": "explicacion",
+			"path": "../../explicacion"
+		},
+		{
+			"name": "proyecto1",
+			"path": "../../../../Users/diurno/Desktop/ALEX/DWEC/proyecto1"
+		},
+		{
+			"name": "Prueba2",
+			"path": "../../Prueba2"
+		},
+		{
+			"name": "ejerciciosComponentes",
+			"path": "../../ejerciciosComponentes"
+		},
+		{
+			"name": "videoclub",
+			"path": "../../videoclub"
+		},
+		{
+			"name": "videoclub2.0",
+			"path": "../../videoclub2.0"
+		},
+		{
+			"name": "videoclub2.0CAP2",
+			"path": "../../videoclub2.0CAP2"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ARROYO"
+	}
+}
