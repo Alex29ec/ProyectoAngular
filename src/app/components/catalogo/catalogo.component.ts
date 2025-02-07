@@ -1,53 +1,40 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
+import { Producto } from '../../models/producto.model';
+import { ProductosService } from '../../productos.service';
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css'],
-  imports: [CommonModule],
+  imports: [NgFor, RouterModule],
+  standalone: true
+
 })
 
 export class CatalogoComponent implements OnInit {
 
-  videojuegos = [
-    {
-      id:1,
-      nombre: 'The Last of Us Part II',
-      precio: 59.99,
-      imagen: 'assets/img/the-last-of-us-2.jpg'
-    },
-    {
-      
-      id:2,
-      nombre: 'Cyberpunk 2077',
-      precio: 49.99,
-      imagen: 'assets/img/cyberpunk-2077.jpg'
-    },
-    {
-      id:3,
-      nombre: 'Spider-Man: Miles Morales',
-      precio: 39.99,
-      imagen: 'assets/img/spider-man-miles-morales.jpg'
-    },
-    {
-      id:4,
-      nombre: 'Hades',
-      precio: 24.99,
-      imagen: 'assets/img/hades.jpg'
-    }
-  ];
+  videojuegos: Producto[] = [];
+  constructor(private router: Router, private api: ProductosService) {}
 
-  constructor(private router :Router) { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.api.getProductos().subscribe(
+      (data) => {
+        this.videojuegos = data;
+      },
+      (error) => {
+        console.log(error);
+    });
   }
 
   verDetalles(id: number) {
-    this.router.navigate(['/producto', id]);
-    
+    const producto = this.videojuegos.find(p => p.id === id);
+
+    if (producto) {
+      this.router.navigate(['/detalle', id], { state: { producto } });
+    }
   }
+
 
 }

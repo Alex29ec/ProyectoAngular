@@ -1,2 +1,6 @@
-<h2>Detalles del Producto</h2>
-<p>ID del producto: {{ id }}</p>
+<div class="mt-4 text-center">
+  <img [src]="producto.imagen" alt="{{ producto.nombre }}" style="width: 100%; max-width: 500px; display: block; margin: auto;">
+  <h2 class="">{{ producto.nombre }}</h2>
+  <p class="">Precio: {{ producto?.precio }} €</p>
+  <button class="btn btn-primary" >Comprar</button>
+</div>

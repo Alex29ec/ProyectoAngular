@@ -1,16 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-producto',
-  imports: [],
   templateUrl: './detalle-producto.component.html',
-  styleUrl: './detalle-producto.component.css'
+  styleUrls: ['./detalle-producto.component.css']
 })
 export class DetalleProductoComponent {
-  id: number | null = null;
 
-  constructor(private route: ActivatedRoute) {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+  producto: any = {};
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.producto = navigation?.extras.state?.['producto'];
+
+    if (!this.producto) {
+      const id = this.route.snapshot.paramMap.get('id');
+      console.log(`Producto con ID ${id} no encontrado en la navegación.`);
+      // Aquí puedes hacer una petición a la API si ya tienes el backend en Spring Boot.
+    }
   }
 }
