@@ -9,7 +9,7 @@ import { Producto } from './models/producto.model';
 })
 export class ProductosService {
 
-  private apiUrl = 'http://localhost:8081/api/productos';  // URL de tu backend
+  private apiUrl = 'http://localhost:8081/productos';  // URL de tu backend
 
   constructor(private http: HttpClient) {}  // Inyectamos HttpClient
 

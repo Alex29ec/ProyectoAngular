@@ -3,7 +3,9 @@
 
     <!-- Logo a la izquierda -->
     <div>
+      <a href="">
       <img src="logo.png" alt="Logo" class="rounded-circle" width="60">
+      </a>
     </div>
 
     <!-- Barra de búsqueda -->
@@ -14,13 +16,12 @@
       </div>
     </div>
 
-    <!-- Login o Nombre de Usuario -->
     <div>
       <ng-container *ngIf="isLoggedIn; else loginTemplate">
-        <button class="btn btn-light">{{ username }}</button>
+        <button class="btn btn-light" onclick="onLogOut()">{{userName}}</button>
       </ng-container>
       <ng-template #loginTemplate>
-        <a routerLink="/login" class="btn btn-outline-light">Iniciar Sesión</a>
+        <button class="btn btn-warning"><a href="/login" class="btn btn-warning">Iniciar Sesion</a></button>
       </ng-template>
     </div>
   </div>

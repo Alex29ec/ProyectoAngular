@@ -11,6 +11,6 @@ export class LoginComponent {
 
   onLogin() {
     console.log('Email:', this.email, 'Password:', this.password);
-    // Aquí se hará la llamada al backend en el futuro
+   
   }
 }
