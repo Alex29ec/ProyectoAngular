@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Editar Marca</h2>
+    <form (ngSubmit)="editarMarca()">
+      <div class="form-group">
+        <label for="nombre">Nombre de la Marca</label>
+        <input type="text" id="nombre" [(ngModel)]="marca.nombre" name="nombre" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar Marca</button>
+    </form>
+  </div>
+  

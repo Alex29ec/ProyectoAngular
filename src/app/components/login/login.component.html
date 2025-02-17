@@ -1,14 +1,26 @@
-<div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit()">
-        <label for="email">Email:</label>
-        <input type="email" id="email" [(ngModel)]="email" name="email" required>
-      
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required>
-      
-        <button type="submit">Iniciar sesión</button>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 350px; border-radius: 12px;">
+      <h2 class="text-center mb-4">Iniciar Sesión</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Introduce tu email" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Introduce tu contraseña" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary w-100" onclick="window.location.href=''">Iniciar sesión</button>
       </form>
-      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+      <p *ngIf="errorMessage" class="text-danger text-center mt-3">{{ errorMessage }}</p>
+      <button class="btn btn-warning">
+        <a href="/register" class="btn btn-warning">Crear Cuenta</a>
+      </button>
+
+    </div>
+    
   </div>
   

@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Editar Compra</h2>
+    <form (ngSubmit)="actualizarCompra()">
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="text" id="fecha" [(ngModel)]="compra.fecha" name="fecha" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="total">Total</label>
+        <input type="number" id="total" [(ngModel)]="compra.total" name="total" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="idProducto">Producto</label>
+        <select id="idProducto" [(ngModel)]="compra.id_producto" name="idProducto" class="form-control" required>
+          <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="idUsuario">Usuario</label>
+        <select id="idUsuario" [(ngModel)]="compra.id_usuario" name="idUsuario" class="form-control" required>
+          <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{ usuario.nombre_completo }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Actualizar Compra</button>
+    </form>
+  </div>
+  

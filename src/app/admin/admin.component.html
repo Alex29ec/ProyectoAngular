@@ -1,0 +1,117 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Administración</h2>
+
+  <!-- Sección de Productos -->
+  <h3 class="mt-4">Productos</h3>
+  <button class="btn btn-primary btn-sm me-2" (click)="addProduct()">Añadir Producto</button>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="editProduct(producto.id)">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteProduct(producto.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Sección de Marcas -->
+  <h3 class="mt-4">Marcas</h3>
+  <button class="btn btn-primary btn-sm me-2" (click)="addMarca()">Añadir Marca</button>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let marca of marcas">
+        <td>{{ marca.id }}</td>
+        <td>{{ marca.nombre }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="editMarca(marca.id)">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteMarca(marca.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Sección de Usuarios -->
+  <h3 class="mt-4">Usuarios</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.username }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="editUser(usuario.id)">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(usuario.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Sección de Compras -->
+  <h3 class="mt-4">Compras</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>Usuario</th>
+        <th>Producto</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compra of compras">
+        <td>{{ compra.id }}</td>
+        <td>{{ compra.fecha }}</td>
+        <td>{{ compra.total }}</td>
+        <td>{{ compra.usuarioNombre }}</td>
+        <td>{{ compra.productoNombre }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="editCompra(compra.id)">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteCompra(compra.id)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

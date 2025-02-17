@@ -7,13 +7,13 @@ import { Producto } from './models/producto.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductosService {
 
-  private apiUrl = 'http://localhost:8081/productos';  // URL de tu backend
-
-  constructor(private http: HttpClient) {}  // Inyectamos HttpClient
+  private apiUrl = 'http://localhost:8081/productos'; 
+  constructor(private http: HttpClient) {} 
 
   getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl);  // Realizamos la llamada HTTP GET
+    return this.http.get<Producto[]>(this.apiUrl);
   }
 }

@@ -1,0 +1,35 @@
+<div class="profile-container">
+  <h2>Perfil de Usuario</h2>
+  <div class="user-info ">
+    <p><strong>Nombre:</strong> {{ userName }}</p>
+    <p><strong>Email:</strong> {{ userEmail }}</p>
+    <p><strong>Nombre de Usuario:</strong> {{ username }}</p>
+    <p><strong>Sexo:</strong> {{ sexo }}</p>
+    <p><strong>Pais:</strong> {{ pais }}</p>
+  </div>
+  
+  <h2>Mis Compras</h2>
+  <table class="table" *ngIf="compras.length > 0; else noCompras">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Producto</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compra of compras">
+        <td>{{ compra.fecha }}</td>
+        <td>{{ compra.productoNombre }}</td>
+        <td>{{ compra.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noCompras>
+    <p>No has realizado ninguna compra aún.</p>
+  </ng-template>
+  
+  <button *ngIf="isAdmin" class="btn btn-primary" (click)="goToAdminPage()">Ir al Backend</button>
+  <button onclick="window.location.href=''" (click)="onLogOut()" class="btn btn-danger">Cerrar Sesión</button>
+</div>

@@ -1,0 +1,45 @@
+<div class="register-container">
+    <h2>Registro</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      
+      <label for="nombre_completo">Nombre Completo:</label>
+      <input type="text" id="nombre_completo" [(ngModel)]="usuario.nombre_completo" name="nombre_completo" required>
+  
+      <label for="username">Nombre de usuario:</label>
+      <input type="text" id="username" [(ngModel)]="usuario.username" name="username" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="usuario.email" name="email" required>
+  
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" [(ngModel)]="usuario.password" name="password" required>
+
+      <label for="password2">Repetir Contraseña:</label>
+      <input type="password" id="password2" [(ngModel)]="usuario.password2" name="password2" required>
+  
+      <label>Sexo:</label>
+      <select [(ngModel)]="usuario.sexo" name="sexo" required>
+        <option value="">Selecciona...</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+      </select>
+  
+      <label>País:</label>
+      <select [(ngModel)]="usuario.pais" name="pais" required>
+        <option value="">Selecciona...</option>
+        <option value="España">España</option>
+        <option value="Alemania">Alemania</option>
+        <option value="Francia">Francia</option>
+        <option value="Italia">Italia</option>
+        <option value="Inglaterra">Inglaterra</option>
+      </select>
+  
+      <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+  
+    </form>
+  
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  </div>
+  

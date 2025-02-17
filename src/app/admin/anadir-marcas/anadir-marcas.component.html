@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Añadir Marca</h2>
+    <form (ngSubmit)="anadirMarca()">
+      <div class="form-group">
+        <label for="nombre">Nombre de la Marca</label>
+        <input type="text" id="nombre" [(ngModel)]="marca.nombre" name="nombre" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Añadir Marca</button>
+    </form>
+  </div>
+  

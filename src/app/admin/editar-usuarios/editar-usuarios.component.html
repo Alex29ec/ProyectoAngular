@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h2>Editar Usuario</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nombre_completo">Nombre Completo:</label>
+        <input type="text" id="nombre_completo" [(ngModel)]="usuario.nombre_completo" name="nombre_completo" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="usuario.email" name="email" required>
+      </div>
+      <div>
+        <label for="pais">País:</label>
+        <select id="pais" [(ngModel)]="usuario.pais" name="pais" required>
+          <option value="España">España</option>
+          <option value="Italia">Italia</option>
+          <option value="Francia">Francia</option>
+          <option value="Alemania">Alemania</option>
+          <option value="Inglaterra">Inglaterra</option>
+        </select>
+      </div>
+      <div>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" [(ngModel)]="usuario.sexo" name="sexo" required>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div>
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" [(ngModel)]="usuario.username" name="username" required>
+      </div>
+      <button type="submit" [disabled]="!usuario.nombre_completo || !usuario.email || !usuario.pais || !usuario.sexo || !usuario.username">Actualizar Usuario</button>
+    </form>
+  </div>
+  

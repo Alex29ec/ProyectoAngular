@@ -9,19 +9,19 @@
     </div>
 
     <!-- Barra de búsqueda -->
-    <div class="w-50">
-      <div class="input-group">
-        <input type="text" class="form-control rounded-pill" placeholder="Buscar productos...">
-        <button class="btn btn-dark rounded-pill ms-2">Buscar</button>
+    
+      <div class="input-group w-50">
+        <input type="text" class="form-control rounded-pill" placeholder="Buscar..." (input)="buscar($event)">
+       
       </div>
-    </div>
-
     <div>
       <ng-container *ngIf="isLoggedIn; else loginTemplate">
-        <button class="btn btn-light" onclick="onLogOut()">{{userName}}</button>
+        <button class="btn btn-light" (click)="goToProfile()">{{ userName }}</button>
       </ng-container>
       <ng-template #loginTemplate>
-        <button class="btn btn-warning"><a href="/login" class="btn btn-warning">Iniciar Sesion</a></button>
+        <button class="btn btn-warning">
+          <a href="/login" class="btn btn-warning">Iniciar Sesión</a>
+        </button>
       </ng-template>
     </div>
   </div>

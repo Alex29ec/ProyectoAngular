@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Añadir Producto</h2>
+  <form (ngSubmit)="anadirProducto()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="precio">Precio</label>
+      <input type="number" id="precio" [(ngModel)]="producto.precio" name="precio" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock</label>
+      <input type="number" id="stock" [(ngModel)]="producto.stock" name="stock" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo</label>
+      <input type="text" id="tipo" [(ngModel)]="producto.tipo" name="tipo" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="imagen">Imagen (URL)</label>
+      <input type="text" id="imagen" [(ngModel)]="producto.imagen" name="imagen" class="form-control" required>
+    </div>
+
+    <!-- Selección de marcas -->
+    <div class="form-group">
+      <label for="marcas">Marcas</label>
+      <select id="marcas" [(ngModel)]="producto.marcas" name="marcas" multiple class="form-control">
+        <option *ngFor="let marca of marcasDisponibles" [value]="marca.id">
+          {{ marca.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Añadir Producto</button>
+  </form>
+</div>
