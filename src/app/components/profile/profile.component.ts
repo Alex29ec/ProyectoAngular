@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   sexo: string | null = '';
   userEmail: string | null = '';
   isLoggedIn: boolean = false;
-  isAdmin: boolean = false; // Variable para verificar si el usuario es admin
+  isAdmin: boolean = false;
   compras: any[] = [];
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -64,6 +64,6 @@ export class ProfileComponent implements OnInit {
   }
 
   goToAdminPage() {
-    this.router.navigate(['/admin']); // Redirigir a la página del backend
+    this.router.navigate(['/admin']);
   }
 }

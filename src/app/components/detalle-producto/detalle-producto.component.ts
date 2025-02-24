@@ -25,15 +25,36 @@ export class DetalleProductoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const state = history.state;
-    if (state && state.producto) {
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras?.state as { producto?: any } | undefined;
+  
+    if (state?.producto) {
       this.producto = state.producto;
       this.obtenerMarcasDelProducto(this.producto.id);
     } else {
-      this.router.navigate(['/']);
+      this.route.paramMap.subscribe(params => {
+        const id = params.get('id');
+        if (id) {
+          this.cargarProductoDesdeAPI(Number(id));
+        } else {
+          this.router.navigate(['/']);
+        }
+      });
     }
   }
-
+  cargarProductoDesdeAPI(id: number) {
+    this.productosService.obtenerProductoPorId(id).subscribe({
+      next: (producto) => {
+        this.producto = producto;
+        this.obtenerMarcasDelProducto(this.producto.id);
+      },
+      error: () => {
+        alert('Error al cargar el producto.');
+        this.router.navigate(['/']);
+      }
+    });
+  }
+  
   obtenerMarcasDelProducto(productoId: number) {
     this.productosService.obtenerMarcasDeProducto(productoId).subscribe({
       next: (marcas) => {
@@ -50,16 +71,17 @@ export class DetalleProductoComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-
+  
     this.comprasService.registrarCompra(this.producto).subscribe({
       next: () => {
-        alert('Compra realizada con éxito');
+        alert('Compra realizada con éxito y stock actualizado');
         this.router.navigate(['']);
       },
       error: (error) => {
-        console.error('Error al comprar:', error);
-        alert('Error al procesar la compra');
+        console.error('Error al procesar la compra:', error);
+        alert(error);
       }
     });
   }
+  
 }

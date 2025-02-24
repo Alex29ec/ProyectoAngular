@@ -3,7 +3,6 @@ import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRe
 import { Router, RouterModule } from '@angular/router';
 import { Producto } from '../../models/producto.model';
 import { ProductosService } from '../../productos.service';
-import { HeaderComponent } from '../header/header.component';
 import { BusquedaService } from '../../services/busqueda.service';
 
 @Component({
@@ -35,6 +34,7 @@ export class CatalogoComponent implements OnInit {
       producto.nombre.toLowerCase().includes(texto.toLowerCase())
     );
   }
+
   verDetalles(id: number) {
     const producto = this.videojuegos.find((p) => p.id === id);
     if (producto) {

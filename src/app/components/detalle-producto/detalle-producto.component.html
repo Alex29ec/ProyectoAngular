@@ -2,7 +2,7 @@
   <img [src]="producto.imagen" alt="{{ producto.nombre }}"
     style="width: 100%; max-width: 500px; display: block; margin: auto;">
   <h2>{{ producto.nombre }}</h2>
-  <p>Precio: {{ producto?.precio }} €</p>
+  <p>Precio: {{ producto.precio }} €</p>
 
   <div *ngIf="marcas.length > 0">
     <h4>Marcas:</h4>

@@ -46,5 +46,9 @@ export class RegisterComponent {
       }
     });
   }
+  else{
+  alert("Las contraseñas no son iguales");
+  
+  }
 }
 }

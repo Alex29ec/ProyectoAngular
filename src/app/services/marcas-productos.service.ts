@@ -14,4 +14,8 @@ export class ProductosService {
   obtenerMarcasDeProducto(productoId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/marcas/producto/${productoId}`);
   }
+  obtenerProductoPorId(id: number): Observable<any> {
+    return this.http.get(`http://localhost:8081/productos/${id}`);
+  }
+  
 }

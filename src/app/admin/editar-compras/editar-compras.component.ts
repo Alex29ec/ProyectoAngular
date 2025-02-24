@@ -23,9 +23,8 @@ export class EditarComprasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Obtener el ID de la compra desde la URL
     this.route.params.subscribe(params => {
-      this.compraId = +params['id'];  // + convierte el valor a número
+      this.compraId = +params['id'];
       this.obtenerCompra(this.compraId);
     });
 

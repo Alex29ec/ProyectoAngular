@@ -19,10 +19,10 @@ export class AdminComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.obtenerProductos();
     this.obtenerUsuarios();
     this.obtenerCompras();
     this.obtenerMarcas(); 
+    this.obtenerProductos();
   }
 
   // Obtener lista de productos
@@ -46,6 +46,7 @@ export class AdminComponent implements OnInit {
     this.http.get<any[]>('http://localhost:8081/compras').subscribe({
       next: (data) => this.compras = data,
       error: (error) => console.error('Error al obtener las compras:', error)
+      
     });
   }
 
@@ -63,6 +64,7 @@ export class AdminComponent implements OnInit {
       next: () => this.obtenerProductos(),
       error: (error) => console.error('Error al eliminar el producto:', error)
     });
+    this.router.navigate(['/admin']);
   }
 
   // Eliminar usuario
@@ -71,6 +73,8 @@ export class AdminComponent implements OnInit {
       next: () => this.obtenerUsuarios(),
       error: (error) => console.error('Error al eliminar el usuario:', error)
     });
+    this.router.navigate(['/admin']);
+
   }
 
   // Eliminar compra
@@ -79,6 +83,8 @@ export class AdminComponent implements OnInit {
       next: () => this.obtenerCompras(),
       error: (error) => console.error('Error al eliminar la compra:', error)
     });
+    this.router.navigate(['/admin']);
+
   }
 
   // Eliminar marca
@@ -87,6 +93,8 @@ export class AdminComponent implements OnInit {
       next: () => this.obtenerMarcas(),
       error: (error) => console.error('Error al eliminar la marca:', error)
     });
+    this.router.navigate(['/admin']);
+
   }
 
   // Agregar producto (redirigir al formulario de creación)
@@ -101,25 +109,25 @@ export class AdminComponent implements OnInit {
 
   // Editar producto
   editProduct(id: number): void {
-    localStorage.setItem('productoId', id.toString()); // Guardamos el ID en localStorage
+    localStorage.setItem('productoId', id.toString()); 
     this.router.navigate([`/admin/editar-producto`, id]);
   }
 
   // Editar marca
   editMarca(id: number): void {
-    localStorage.setItem('marcaId', id.toString()); // Guardamos el ID de la marca en localStorage
+    localStorage.setItem('marcaId', id.toString());
     this.router.navigate([`/admin/editar-marca`, id]);
   }
 
   // Editar usuario
   editUser(id: number): void {
-    localStorage.setItem('usuarioId', id.toString()); // Guardamos el ID en localStorage
+    localStorage.setItem('usuarioId', id.toString());
     this.router.navigate([`/admin/editar-usuario`, id]);
   }
 
   // Editar compra
   editCompra(id: number): void {
-    localStorage.setItem('compraId', id.toString()); // Guardamos el ID en localStorage
+    localStorage.setItem('compraId', id.toString());  
     this.router.navigate([`/admin/editar-compra`, id]);
   }
 }

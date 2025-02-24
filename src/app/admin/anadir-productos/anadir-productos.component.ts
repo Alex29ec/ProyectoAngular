@@ -42,41 +42,35 @@ export class AnadirProductosComponent implements OnInit {
       }
     });
   }
+    anadirProducto(): void {
+      const { marcas, ...productoSinMarcas } = this.producto;
+    
+      this.http.post<{ id: number }>('http://localhost:8081/productos', productoSinMarcas).subscribe({
+        next: (response) => {
+          const productoId = response.id;
+    
+          if (marcas && marcas.length > 0) {
+            const marcasAsociacion = marcas.map(id => id);
 
-  anadirProducto(): void {
-    const productoConMarcas = {
-      ...this.producto,
-      marcas: this.producto.marcas.map(id => ({ id }))
-    };
-    this.http.post('http://localhost:8081/productos', productoConMarcas).subscribe({
-      next: () => {
-        alert('Producto añadido correctamente');
-        this.router.navigate(['/admin']);
-      },
-      error: (error) => {
-        console.error('Error al añadir el producto:', error);
-        alert('Hubo un error al añadir el producto');
-      }
-    });
-  }
- 
-asociarMarcasAProducto(productoId: number): void {
-  if (this.producto.marcas.length > 0) {
-    const marcaIds = this.producto.marcas.map(marca => marca.id);
-    this.http.put(`http://localhost:8081/marcas/producto/${productoId}`, marcaIds).subscribe({
-      next: () => {
-        alert('Producto añadido correctamente con marcas');
-        this.router.navigate(['/admin']);
-      },
-      error: (error) => {
-        console.error('Error al asociar marcas:', error);
-        alert('El producto se añadió, pero hubo un error al asociar las marcas');
-      }
-    });
-  } else {
-    alert('Producto añadido correctamente');
-    this.router.navigate(['/admin']);
-  }
-}
-
+            this.http.put(`http://localhost:8081/productos/producto/${productoId}/asociar`, marcasAsociacion).subscribe({
+              next: () => {
+                alert('Producto y marcas añadidos correctamente');
+                this.router.navigate(['/admin']);
+              },
+              error: (error) => {
+                console.error('Error al asociar marcas:', error);
+                alert('Hubo un error al asociar las marcas al producto');
+              }
+            });
+          } else {
+            alert('Producto añadido correctamente sin marcas');
+            this.router.navigate(['/admin']);
+          }
+        },
+        error: (error) => {
+          console.error('Error al añadir el producto:', error);
+          alert('Hubo un error al añadir el producto');
+        }
+      });
+    }
 }
